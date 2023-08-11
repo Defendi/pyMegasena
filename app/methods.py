@@ -115,11 +115,11 @@ class SqlMethods:
         try:
             self.cur.execute(sql_command)
             self.con.commit()
-            print('[OK] POSTGRESQL - COMMIT')
+            # print('[OK] POSTGRESQL - COMMIT')
             return 1
         except:
             self.con.rollback()
-            print('[ERRO] POSTGRESQL - ROLLBACK')
+            # print('[ERRO] POSTGRESQL - ROLLBACK')
             return -1
 
     def sql_update(self, table, set_dict, filt):
@@ -146,7 +146,7 @@ class SqlMethods:
         else:
             sql_command = f"UPDATE {self.sch}.{table} SET {set_str} WHERE {filt};"
 
-        print(sql_command)
+        # print(sql_command)
         try:
             self.cur.execute(sql_command)
             self.con.commit()
@@ -180,7 +180,7 @@ class SqlMethods:
             return rows_list
 
         except Exception as e:
-            print(e)
+            # print(e)
             self.con.rollback()
             return -1
         
